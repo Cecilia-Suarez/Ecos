@@ -5,7 +5,7 @@ interface AvatarProps extends SVGProps<SVGSVGElement> {
   detailColor?: string;
 }
 
-export const Avatar = ({ bgColor = "#757575", detailColor = "#B1B1B1", ...props }: AvatarProps) => (
+export const Avatar = ({ bgColor = "#FFFFFF", detailColor = "#19233A", ...props }: AvatarProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="65"

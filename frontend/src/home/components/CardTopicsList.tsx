@@ -1,13 +1,13 @@
 import { PlayIcon } from "@/home/components/ui/PlayIcon";
 import { PlusCircle } from "@/home/components/ui/PlusCircle";
-import imageTema1 from "@/assets/imageTema1.png";
-import imageTema2 from "@/assets/imageTema2.png";
-import imageTema3 from "@/assets/imageTema3.png";
+import temaGemaz from "@/assets/temaGemaz.webp";
+import temaEstudioGrab from "@/assets/temaEstudioGrab.webp";
+import temaMateoPaggi from "@/assets/temaMateoPaggi.webp";
 
 const FAVORITE_LIST = [
   {
     id: 1,
-    image: imageTema1,
+    image: temaGemaz,
     title: "Title",
     description: "Description duis aute irure dolor in reprehenderit in voluptate velit.",
     icon1: <PlusCircle className="stroke-[#1D1B20]" />,
@@ -17,7 +17,7 @@ const FAVORITE_LIST = [
   },
   {
     id: 2,
-    image: imageTema2,
+    image: temaEstudioGrab,
     title: "Title",
     description: "Description duis aute irure dolor in reprehenderit in voluptate velit.",
     icon1: <PlusCircle className="stroke-[#1D1B20]" />,
@@ -27,7 +27,7 @@ const FAVORITE_LIST = [
   },
   {
     id: 3,
-    image: imageTema3,
+    image: temaMateoPaggi,
     title: "Title",
     description: "Description duis aute irure dolor in reprehenderit in voluptate velit.",
     icon1: <PlusCircle className="stroke-[#1D1B20]" />,

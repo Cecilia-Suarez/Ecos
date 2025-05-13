@@ -4,7 +4,7 @@ import { Avatar } from "@/auth/components/ui/Avatar";
 import Input from "@/app/ui/Input";
 import AuthModal, { AuthMode } from "@/auth/components/AuthModal";
 import Layer from "@/assets/Layer.svg?react";
-import MenuIcon from "@/assets/hamburgerMenu.svg?react";
+import MenuIcon from "@/assets/hamburgerMenu-2.svg?react";
 import Lens from "@/assets/lens.svg?react";
 import { useAuth } from "@/auth/hooks/use-auth";
 import UserMenu from "@/auth/components/UserMenu";
@@ -57,21 +57,21 @@ export const Header = () => {
             </Link>
             <button
               type="button"
-              className="block p-2 focus:outline-none lg:hidden"
+              title="Menú"
+              className="block p-4 focus:outline-none lg:hidden"
               onClick={toggleMenu}
             >
-              Menu
-              <MenuIcon />
+              <MenuIcon className="h-12 w-12" />
             </button>
             {isOpen && (
-              <nav className="absolute top-18 left-0 w-48 bg-white p-4 shadow-md lg:hidden">
-                <Link to="/explorer" className="block py-2" onClick={closeMenu}>
+              <nav className="absolute top-22 left-1 z-10 w-48 rounded-xl bg-white px-4 py-10 shadow-md lg:hidden">
+                <Link to="/explorer" className="block py-2 text-[#19233A]" onClick={closeMenu}>
                   Explorar
                 </Link>
-                <Link to="/artist" className="block py-2" onClick={closeMenu}>
+                <Link to="/artist" className="block py-2 text-[#19233A]" onClick={closeMenu}>
                   Artistas
                 </Link>
-                <Link to="/play" className="block py-2" onClick={closeMenu}>
+                <Link to="/play" className="block py-2 text-[#19233A]" onClick={closeMenu}>
                   Play
                 </Link>
               </nav>

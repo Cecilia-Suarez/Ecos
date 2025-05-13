@@ -1,12 +1,12 @@
-import imageArtista1 from "@/assets/imageArtista1.png";
-import imageArtista2 from "@/assets/imageArtista2.png";
-import imageArtista3 from "@/assets/imageArtista3.png";
-import imageArtista4 from "@/assets/imageArtista4.png";
+import artista1 from "@/assets/artista1.webp";
+import artista2 from "@/assets/artista2.webp";
+import artista3 from "@/assets/artista3.webp";
+import artista4 from "@/assets/artista4.webp";
 
 const favoriteArtistList = [
   {
     id: 1,
-    image: imageArtista1,
+    image: artista1,
     title: "ARTISTA",
     date: "Published date",
     description:
@@ -14,7 +14,7 @@ const favoriteArtistList = [
   },
   {
     id: 2,
-    image: imageArtista2,
+    image: artista2,
     title: "ARTISTA",
     date: "Published date",
     description:
@@ -22,7 +22,7 @@ const favoriteArtistList = [
   },
   {
     id: 3,
-    image: imageArtista3,
+    image: artista3,
     title: "ARTISTA",
     date: "Published date",
     description:
@@ -30,7 +30,7 @@ const favoriteArtistList = [
   },
   {
     id: 4,
-    image: imageArtista4,
+    image: artista4,
     title: "ARTISTA",
     date: "Published date",
     description:

@@ -1,11 +1,11 @@
-import imageEvento1 from "@/assets/imageEvento1.jpg";
-import imageEvento2 from "@/assets/imageEvento2.jpg";
-import imageEvento3 from "@/assets/imageEvento3.jpg";
+import evento1 from "@/assets/evento1.webp";
+import evento2 from "@/assets/evento2.webp";
+import evento3 from "@/assets/evento3.webp";
 
 const upcomingEventsList = [
   {
     id: 1,
-    image: imageEvento1,
+    image: evento1,
     title: "EVENTO",
     supporting: "supporting text",
     date: "Published date",
@@ -14,7 +14,7 @@ const upcomingEventsList = [
   },
   {
     id: 2,
-    image: imageEvento2,
+    image: evento2,
     title: "EVENTO",
     supporting: "supporting text",
     date: "Published date",
@@ -23,7 +23,7 @@ const upcomingEventsList = [
   },
   {
     id: 3,
-    image: imageEvento3,
+    image: evento3,
     title: "EVENTO",
     supporting: "supporting text",
     date: "Published date",

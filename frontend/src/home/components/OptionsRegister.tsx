@@ -3,9 +3,9 @@ import iconoM from "@/assets/iconoM.svg";
 import iconoF from "@/assets/iconoF.svg";
 import iconoE from "@/assets/iconoE.svg";
 
-import imageDjCards from "@/assets/imageDjCards.jpg";
-import fotoFestivalCards from "@/assets/fotoFestivalCards.jpg";
-import chicaBailandoCards from "@/assets/chicaBailandoCards.jpg";
+import womenDj from "@/assets/womenDj.webp";
+import celuFestival from "@/assets/celuFestival.webp";
+import chicaAtractiva from "@/assets/chicaAtractiva.webp";
 
 export default function OptionsRegister() {
   const cardsData = [
@@ -14,7 +14,7 @@ export default function OptionsRegister() {
       icono: iconoM,
       option: "MÚSICOS",
       description: "**Artistas independientes y emergentes**",
-      imageSrc: imageDjCards,
+      imageSrc: womenDj,
       title: "Conquista tu escena musical",
       parrafo2: "Plataforma diseñada para impulsar tu carrera.",
       parrafo: "Promociona tu música, encuentra oportunidades y conecta con tu audiencia.",
@@ -25,7 +25,7 @@ export default function OptionsRegister() {
       icono: iconoF,
       option: "FAN",
       description: "**Descubre, Escucha y Sigue a tus Músicos Favoritos**",
-      imageSrc: chicaBailandoCards,
+      imageSrc: chicaAtractiva,
       title: "Busca nuevas Opciones de Música",
       parrafo2: "Conecta con músicos ideales según tus gustos.",
       parrafo: "Encuentra talentos y llena tus espacios con la mejor música.",
@@ -36,9 +36,10 @@ export default function OptionsRegister() {
       icono: iconoE,
       option: "PRÓXIMOS EVENTOS",
       description: "No te pierdas lo que viene",
-      imageSrc: fotoFestivalCards,
+      imageSrc: celuFestival,
       title: "La fiesta comienza !!",
-      parrafo2: "Conciertos Únicos: Artistas independientes y emergentes creando magia musical en vivo.",
+      parrafo2:
+        "Conciertos Únicos: Artistas independientes y emergentes creando magia musical      en vivo.",
       parrafo: "La música no espera, ¡Únete ya!.",
       buttonText: "Explorar",
     },
