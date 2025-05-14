@@ -37,6 +37,7 @@ const Modal = ({
           </h1>
           <button
             type="button"
+            title="CloseArrow"
             onClick={onClose}
             className="absolute top-2 right-2 hover:cursor-pointer"
           >
