@@ -12,14 +12,14 @@ const SongsGrid = ({ songs }: SongsGridProps) => {
   const [playingId, setPlayingId] = useState<string | null>(null);
 
   const scroll = (direction: "left" | "right") => {
-    const amount = direction === "right" ? 300 : -300;
+    const amount = direction === "right" ? 600 : -600;
     containerRef.current?.scrollBy({ left: amount, behavior: "smooth" });
   };
 
   return (
     <div className="relative">
       <div ref={containerRef} className="no-scrollbar flex overflow-x-auto">
-        <div className="grid flex-shrink-0 grid-cols-4 space-x-24">
+        <div className="grid flex-shrink-0 grid-cols-3 space-x-24">
           {songs.map((song) => (
             <CardSong
               key={song.id}

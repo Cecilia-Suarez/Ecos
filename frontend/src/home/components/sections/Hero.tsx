@@ -54,7 +54,7 @@ export default function Hero() {
       <div className="relative w-full overflow-hidden md:h-[420px] lg:h-[860px]">
         <video
           ref={videoRef}
-          className="absolute inset-0 -z-10 h-full w-full object-cover md:h-[469px] lg:h-[986px]"
+          className="absolute inset-0 -z-10 h-full w-full object-cover md:h-[420px] lg:h-[860px]"
           src={HeroVideo}
           autoPlay
           loop
@@ -75,18 +75,18 @@ export default function Hero() {
             <div className="mt-6 flex gap-6">
               <button
                 type="submit"
-                className="bg-ecos-blue h-12 w-32 rounded-3xl text-sm text-white hover:bg-[#B1B1B1]"
+                className="bg-ecos-orange-light hover:bg-ecos-dark-grey-light h-12 w-48 rounded-3xl text-xl text-black"
                 onClick={() => {
                   handleOpenModal("register");
                 }}
               >
-                Regístrate
+                Registrate
               </button>
               <button
                 type="submit"
-                className="bg-ecos-orange-light h-12 w-32 rounded-3xl text-sm text-white hover:bg-[#B1B1B1]"
+                className="hover:bg-ecos-dark-grey-light border-ecos-orange-light h-12 w-48 rounded-3xl border-2 bg-transparent text-xl text-white"
               >
-                Explora
+                Explorá
               </button>
             </div>
           </div>

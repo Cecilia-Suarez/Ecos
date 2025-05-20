@@ -42,6 +42,7 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { user } = useAuth();
+  const isFan = user?.role === "FAN";
   const isMusician = user?.role === "MUSICIAN";
 
   const handleOpenModal = (mode: AuthMode) => {
@@ -101,14 +102,14 @@ export const Header = () => {
             </button>
             {isOpen && (
               <nav className="absolute top-22 left-1 z-20 w-56 rounded-2xl bg-white px-8 py-10 shadow-md lg:hidden">
-                <Link to="/" className="text-ecos-blue block py-2" onClick={closeMenu}>
+                <Link to="/" className="text-ecos-blue block py-2 text-lg" onClick={closeMenu}>
                   Inicio
                 </Link>
                 {!user && (
                   <button
                     type="button"
                     title="Iniciar sesion"
-                    className="text-ecos-blue block py-2"
+                    className="text-ecos-blue block py-2 text-lg"
                     onClick={() => {
                       handleOpenModal("login");
                       closeMenu();
@@ -118,25 +119,25 @@ export const Header = () => {
                   </button>
                 )}
                 <a
-                  className="text-ecos-blue block cursor-pointer py-2"
+                  className="text-ecos-blue block cursor-pointer py-2 text-lg"
                   onClick={() => {
-                    scrollToSection("#explorar");
+                    scrollToSection("#canciones");
                     closeMenu();
                   }}
                 >
-                  Explorar
+                  Canciones
                 </a>
                 <a
-                  className="text-ecos-blue block cursor-pointer py-2"
+                  className="text-ecos-blue block cursor-pointer py-2 text-lg"
                   onClick={() => {
                     scrollToSection("#artistas");
                     closeMenu();
                   }}
                 >
-                  Artistas Destacados
+                  Artistas
                 </a>
                 <a
-                  className="text-ecos-blue block cursor-pointer py-2"
+                  className="text-ecos-blue block cursor-pointer py-2 text-lg"
                   onClick={() => {
                     scrollToSection("#eventos");
                     closeMenu();
@@ -144,40 +145,27 @@ export const Header = () => {
                 >
                   Eventos
                 </a>
+                {user && (
+                  <a
+                    className="text-ecos-blue block py-2 text-lg"
+                    onClick={() => {
+                      scrollToSection("#eventos");
+                      closeMenu();
+                    }}
+                  >
+                    Mis Favoritos
+                  </a>
+                )}
               </nav>
             )}
             <nav className="hidden gap-6 text-xl font-semibold text-white lg:flex xl:gap-16">
-              {isMusician ? (
+              {isMusician || isFan ? (
                 <>
+                  <Link to="/" className="hover:text-ecos-dark-grey-light cursor-pointer text-lg">
+                    Inicio
+                  </Link>
                   <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "Canciones" ? "text-[#FE963D]" : ""}`}
-                    onClick={() => {
-                      scrollToSection("#Canciones");
-                    }}
-                  >
-                    Canciones
-                  </a>
-                  <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "artistas" ? "text-[#FE963D]" : ""}`}
-                    onClick={() => {
-                      scrollToSection("#artistas");
-                    }}
-                  >
-                    Artistas
-                  </a>
-                  <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "eventos" ? "text-[#FE963D]" : ""}`}
-                    onClick={() => {
-                      scrollToSection("#eventos");
-                    }}
-                  >
-                    Eventos
-                  </a>
-                </>
-              ) : (
-                <>
-                  <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "canciones" ? "text-[#FE963D]" : ""}`}
+                    className={`hover:texthover:text-ecos-dark-grey-light cursor-pointer text-lg ${activeSection === "canciones" ? "text-ecos-orange-light" : ""}`}
                     onClick={() => {
                       scrollToSection("#canciones");
                     }}
@@ -185,7 +173,7 @@ export const Header = () => {
                     Canciones
                   </a>
                   <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "artistas" ? "text-[#FE963D]" : ""}`}
+                    className={`hover:text-ecos-dark-grey-light cursor-pointer text-lg ${activeSection === "artistas" ? "text-ecos-orange-light" : ""}`}
                     onClick={() => {
                       scrollToSection("#artistas");
                     }}
@@ -193,7 +181,45 @@ export const Header = () => {
                     Artistas
                   </a>
                   <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "eventos" ? "text-[#FE963D]" : ""}`}
+                    className={`hover:text-ecos-dark-grey-light cursor-pointer text-lg ${activeSection === "eventos" ? "text-ecos-orange-light" : ""}`}
+                    onClick={() => {
+                      scrollToSection("#eventos");
+                    }}
+                  >
+                    Eventos
+                  </a>
+                  <a
+                    className={`hover:text-ecos-dark-grey-light cursor-pointer text-lg ${activeSection === "favoritos" ? "text-ecos-orange-light" : ""}`}
+                    onClick={() => {
+                      scrollToSection("#favoritos");
+                    }}
+                  >
+                    Mis Favoritos
+                  </a>
+                </>
+              ) : (
+                <>
+                  <Link to="/" className="hover:text-ecos-dark-grey-light cursor-pointer">
+                    Inicio
+                  </Link>
+                  <a
+                    className={`hover:text-ecos-dark-grey-light cursor-pointer ${activeSection === "canciones" ? "text-ecos-orange-light" : ""}`}
+                    onClick={() => {
+                      scrollToSection("#canciones");
+                    }}
+                  >
+                    Canciones
+                  </a>
+                  <a
+                    className={`hover:text-ecos-dark-grey-light cursor-pointer ${activeSection === "artistas" ? "text-ecos-orange-light" : ""}`}
+                    onClick={() => {
+                      scrollToSection("#artistas");
+                    }}
+                  >
+                    Artistas
+                  </a>
+                  <a
+                    className={`hover:text-ecos-dark-grey-light cursor-pointer ${activeSection === "eventos" ? "text-ecos-orange-light" : ""}`}
                     onClick={() => {
                       scrollToSection("#eventos");
                     }}
@@ -240,8 +266,8 @@ export const Header = () => {
           <Input
             placeholder="Busca Artistas o Canciones que te gusten ... "
             className="mx-auto flex w-full bg-[#ECE6F0] text-[#19233A] sm:w-4/5 lg:py-2 lg:text-xl lg:font-semibold"
-            startIcon={<MenuIcon className="my-auto" />}
-            endIcon={<Lens className="my-auto" />}
+            // startIcon={<MenuIcon className="my-auto" />}
+            endIcon={<Lens className="my-auto mr-6" />}
           />
         </div>
       </header>
