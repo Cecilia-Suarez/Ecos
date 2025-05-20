@@ -54,7 +54,7 @@ export default function Hero() {
       <div className="relative w-full overflow-hidden md:h-[420px] lg:h-[860px]">
         <video
           ref={videoRef}
-          className="absolute inset-0 -z-10 h-full w-full object-cover md:h-[420px] lg:h-[860px]"
+          className="absolute inset-0 -z-10 h-full w-full object-cover md:h-[469px] lg:h-[986px]"
           src={HeroVideo}
           autoPlay
           loop
