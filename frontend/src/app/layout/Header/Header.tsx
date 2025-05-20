@@ -8,7 +8,6 @@ import MenuIcon from "@/assets/hamburgerMenu-2.svg?react";
 import Lens from "@/assets/lens.svg?react";
 import { useAuth } from "@/auth/hooks/use-auth";
 import UserMenu from "@/auth/components/UserMenu";
-import { Bell } from "./Bell";
 import WelcomeUserModal from "@/auth/components/WelcomeUserModal";
 
 export const Header = () => {
@@ -86,7 +85,7 @@ export const Header = () => {
       <header className="bg-ecos-blue w-full shadow">
         <div className="mx-auto flex items-center justify-between px-12 py-6">
           <div className="flex items-center gap-16">
-            <Link to="/" className="hidden px-6 py-5 lg:flex">
+            <Link to="/" className="hidden w-36 px-6 py-5 lg:flex">
               <Layer />
             </Link>
             <button
@@ -145,27 +144,18 @@ export const Header = () => {
                 >
                   Eventos
                 </a>
-                <a
-                  className="text-ecos-blue block cursor-pointer py-2"
-                  onClick={() => {
-                    scrollToSection("#preguntas");
-                    closeMenu();
-                  }}
-                >
-                  Preguntas Frecuentes
-                </a>
               </nav>
             )}
             <nav className="hidden gap-6 text-xl font-semibold text-white lg:flex xl:gap-16">
               {isMusician ? (
                 <>
                   <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "misfavoritos" ? "text-[#FE963D]" : ""}`}
+                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "Canciones" ? "text-[#FE963D]" : ""}`}
                     onClick={() => {
-                      scrollToSection("#misfavoritos");
+                      scrollToSection("#Canciones");
                     }}
                   >
-                    Mis Favoritos
+                    Canciones
                   </a>
                   <a
                     className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "artistas" ? "text-[#FE963D]" : ""}`}
@@ -173,7 +163,7 @@ export const Header = () => {
                       scrollToSection("#artistas");
                     }}
                   >
-                    Artistas Destacados
+                    Artistas
                   </a>
                   <a
                     className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "eventos" ? "text-[#FE963D]" : ""}`}
@@ -187,12 +177,12 @@ export const Header = () => {
               ) : (
                 <>
                   <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "explorar" ? "text-[#FE963D]" : ""}`}
+                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "canciones" ? "text-[#FE963D]" : ""}`}
                     onClick={() => {
-                      scrollToSection("#explorar");
+                      scrollToSection("#canciones");
                     }}
                   >
-                    Explorar
+                    Canciones
                   </a>
                   <a
                     className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "artistas" ? "text-[#FE963D]" : ""}`}
@@ -200,7 +190,7 @@ export const Header = () => {
                       scrollToSection("#artistas");
                     }}
                   >
-                    Artistas Destacados
+                    Artistas
                   </a>
                   <a
                     className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "eventos" ? "text-[#FE963D]" : ""}`}
@@ -209,14 +199,6 @@ export const Header = () => {
                     }}
                   >
                     Eventos
-                  </a>
-                  <a
-                    className={`cursor-pointer hover:text-[#B1B1B1] ${activeSection === "preguntas" ? "text-[#FE963D]" : ""}`}
-                    onClick={() => {
-                      scrollToSection("#preguntas");
-                    }}
-                  >
-                    Preguntas Frecuentes
                   </a>
                 </>
               )}
@@ -245,11 +227,10 @@ export const Header = () => {
                     Crear cuenta
                   </button>
                 </div>
-                <Avatar />
+                <Avatar className="lg:mr-12" />
               </>
             ) : (
               <>
-                <Bell className="size-[70px]" />
                 <UserMenu />
               </>
             )}
@@ -257,7 +238,7 @@ export const Header = () => {
         </div>
         <div className="mx-auto mb-6 w-88 md:w-192 lg:-mt-12 lg:mb-12 lg:w-4/5">
           <Input
-            placeholder="Busca Artista, Album, Canción"
+            placeholder="Busca Artistas o Canciones que te gusten ... "
             className="mx-auto flex w-full bg-[#ECE6F0] text-[#19233A] sm:w-4/5 lg:py-2 lg:text-xl lg:font-semibold"
             startIcon={<MenuIcon className="my-auto" />}
             endIcon={<Lens className="my-auto" />}

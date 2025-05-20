@@ -10,8 +10,8 @@ const FeaturedArtists = () => {
   const { data } = useApiQuery<ApiResponse>("musicians", "/musician-profile/search", "featured");
 
   return (
-    <section id="#artistas" className="mt-24 px-2.5 lg:px-12">
-      <h2 className="my-16 text-start text-5xl font-semibold text-[#19233A]">
+    <section id="#artistas" className="mx-auto">
+      <h2 className="mt-36 text-start text-6xl font-bold text-[#19233A] lg:ml-36">
         Artistas destacados
       </h2>
       {data && <ArtistGrid musicians={data.items} />}

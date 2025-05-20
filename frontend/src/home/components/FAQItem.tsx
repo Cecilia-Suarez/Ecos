@@ -42,7 +42,7 @@ const FAQItem = () => {
   };
 
   return (
-    <ul className="list-none lg:w-3/5">
+    <ul className="mx-auto -mt-12 list-none lg:w-3/5">
       {FAQItemList.map(({ id, question, answer }) => {
         const isOpen = openItemId === id;
         return (

@@ -19,7 +19,7 @@ const SongsGrid = ({ songs }: SongsGridProps) => {
   return (
     <div className="relative">
       <div ref={containerRef} className="no-scrollbar flex overflow-x-auto">
-        <div className="grid flex-shrink-0 grid-cols-3 space-x-12">
+        <div className="grid flex-shrink-0 grid-cols-4 space-x-24">
           {songs.map((song) => (
             <CardSong
               key={song.id}
@@ -37,6 +37,7 @@ const SongsGrid = ({ songs }: SongsGridProps) => {
       </div>
 
       <button
+        title="arrowscroll"
         type="button"
         onClick={() => {
           scroll("left");
@@ -47,6 +48,7 @@ const SongsGrid = ({ songs }: SongsGridProps) => {
       </button>
 
       <button
+        title="arrowscroll"
         type="button"
         onClick={() => {
           scroll("right");
