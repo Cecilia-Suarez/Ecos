@@ -8,6 +8,7 @@ import CalendarIcon from "../ui/CalendarIcon";
 import ClockIcon from "../ui/ClockIcon";
 import LocationIcon from "../ui/LocationIcon";
 import TicketIcon from "../ui/TicketIcon";
+import { CalendarButton } from "../ui/CalendarButton";
 
 interface StepFourProps {
   prevStep: () => void;
@@ -105,12 +106,13 @@ export default function StepFour({ prevStep, formData }: StepFourProps) {
                 <ClockIcon />
                 <p className="text-2xl font-semibold">{formData.startTime}</p>
               </div>
-              <button
-                className="text-center text-xl font-semibold text-[#2C53AE] md:text-start lg:mt-5"
-                type="button"
-              >
-                + Agregar a Calendario
-              </button>
+              <CalendarButton
+                title={formData.name}
+                description={formData.description}
+                location={formData.location}
+                start={new Date(`${formData.dateString}T${formData.startTime}`)}
+                end={new Date(`${formData.dateString}T${formData.endTime}`)}
+              />
             </div>
             <div className="flex flex-col gap-y-4">
               <h3 className="text-2xl font-bold md:text-[32px]">Lugar</h3>
@@ -122,17 +124,17 @@ export default function StepFour({ prevStep, formData }: StepFourProps) {
             </div>
             <div className="flex flex-col gap-y-4">
               <h3 className="text-2xl font-bold md:text-[32px]">Información de las entradas</h3>
-              <div className="flex items-center gap-x-1">
-                <TicketIcon className="h-[30px] w-[30px]" />
-                <div>
-                  <p className="text-2xl font-semibold">Puntos de venta:</p>
-                  <div className="flex gap-x-4">
-                    <p>Puerta:</p>
-                    <span>$ {formData.tickets[0]?.price}</span>
-                  </div>
-                  <div className="flex gap-x-4">
-                    <p>Locuras</p>
-                    <span>$ {formData.tickets[1]?.price}</span>
+              <div className="gap-x-1">
+                <p className="pl-7 font-semibold">Puntos de venta:</p>
+                <div className="flex items-center">
+                  <TicketIcon className="h-[30px] w-[30px]" />
+                  <div>
+                    {formData.tickets.map((ticket) => (
+                      <div key={ticket.location} className="flex gap-x-4">
+                        <p>{ticket.location}</p>
+                        <span>$ {ticket.price}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
