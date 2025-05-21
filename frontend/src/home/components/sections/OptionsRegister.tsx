@@ -45,7 +45,7 @@ export default function OptionsRegister() {
   ];
 
   return (
-    <div className="mt-24 flex flex-col justify-around gap-11 px-2.5 text-center lg:mt-[156px] lg:px-12">
+    <div className="mt-36 ml-36 flex flex-col justify-around gap-11 p-4 text-center lg:mt-[156px] lg:px-12">
       <div className="max-w-[634px] space-y-8 text-start text-3xl text-[#19233A] md:text-[40px]">
         <h2 className="font-normal">Conectamos músicos, fans y eventos en una sola plataforma</h2>
         <h2 className="font-bold">¡Empieza!</h2>

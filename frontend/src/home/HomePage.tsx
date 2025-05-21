@@ -4,6 +4,7 @@ import FeaturedArtists from "./components/sections/FeaturedArtists";
 import UpcomingEvents from "./components/sections/UpcomingEvents";
 import FAQList from "./components/sections/FAQList";
 import DiscoverArtist from "./components/sections/DiscoverArtist";
+import GuitarRegisterSection from "./components/sections/GuitarRegisterSection";
 
 export const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ export const HomePage = () => {
         <FeaturedArtists />
         <UpcomingEvents />
         <FAQList />
+        <GuitarRegisterSection />
       </div>
     </main>
   );
