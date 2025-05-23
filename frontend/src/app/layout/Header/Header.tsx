@@ -7,9 +7,17 @@ import EcosLogo from "@/assets/header/logo.svg?react";
 import MenuIcon from "@/assets/hamburgerMenu-2.svg?react";
 import Lens from "@/assets/lens.svg?react";
 import { useAuth } from "@/auth/hooks/use-auth";
+import { useApiQuery } from "@/shared/hooks/use-api-query";
 import UserMenu from "@/auth/components/UserMenu";
 import WelcomeUserModal from "@/auth/components/WelcomeUserModal";
 // import { Bell } from "./Bell";
+
+interface Song {
+  id: string;
+  title: string;
+  genre?: string;
+  audioUrl?: string;
+}
 
 const NAV_SECTIONS = [
   "Inicio",
@@ -58,6 +66,35 @@ export const Header = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchUrl = searchQuery
+    ? `/songs/search?search=${encodeURIComponent(searchQuery)}&page=0&size=10&sortBy=title&direction=asc`
+    : "";
+  const { data } = useApiQuery<{ items: Song[] }>("search", searchUrl, undefined, !!searchQuery);
+
+  const songs = searchQuery.trim().length > 0 && data?.items ? data.items : [];
+  const [currentSong, setCurrentSong] = useState<string | null>(null);
+  const handlePlaySong = (url: string) => {
+    setCurrentSong(null);
+
+    setTimeout(() => {
+      setCurrentSong(url);
+    }, 50);
+
+    setSearchQuery("");
+  };
+  const handleClosePlayer = () => {
+    const audio = document.querySelector("audio");
+
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.src = "";
+      audio.load();
+    }
+
+    setCurrentSong(null);
+  };
 
   const [openModal, setOpenModal] = useState<AuthMode | null>(null);
   const [showWelcomeUser, setShowWelcomeUser] = useState(false);
@@ -216,13 +253,49 @@ export const Header = () => {
         </div>
         <div className="mx-auto mb-6 w-88 md:w-192 lg:-mt-12 lg:mb-12 lg:w-4/5">
           <Input
-            placeholder="Busca Artista, Album, Canción"
+            placeholder="Busca Canciones y navega con música ..."
             className="text-ecos-blue mx-auto flex w-full bg-[#ECE6F0] sm:w-4/5 lg:py-2 lg:text-xl lg:font-semibold"
             startIcon={<MenuIcon className="my-auto" />}
             endIcon={<Lens className="my-auto" />}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+            }}
           />
+          {songs.length > 0 && searchQuery.trim().length > 0 && (
+            <div className="absolute top-48 left-120 z-30 max-h-[300px] w-[300px] -translate-x-1/2 transform overflow-y-auto rounded-lg bg-white p-4 shadow-md">
+              {songs.map((song) => (
+                <p
+                  key={song.id}
+                  className="cursor-pointer rounded px-2 py-1 text-black hover:bg-gray-200"
+                  onClick={() => {
+                    if (song.audioUrl) {
+                      handlePlaySong(song.audioUrl);
+                    }
+                  }}
+                >
+                  {song.title}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </header>
+      {currentSong && (
+        <div className="stick top-60 z-20 flex transform justify-between rounded-lg bg-white px-10 py-1 shadow-lg">
+          <audio controls autoPlay key={currentSong}>
+            <source src={currentSong} type="audio/mpeg" />
+            Tu navegador no soporta audio.
+          </audio>
+          <button
+            type="button"
+            onClick={handleClosePlayer}
+            className="bg-ecos-orange my-auto h-12 w-36 cursor-pointer rounded-4xl px-3 py-1 text-white"
+          >
+            Cerrar
+          </button>
+        </div>
+      )}
+
       {openModal && <AuthModal mode={openModal} onClose={handleCloseModal} />}
       {showWelcomeUser && (
         <WelcomeUserModal
