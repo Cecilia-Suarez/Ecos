@@ -7,12 +7,17 @@ export const useApiQuery = <T>(
   url: string,
   id?: string,
   enabled = true,
-): UseQueryResult<T, AxiosError> => {
-  return useQuery<T, AxiosError>({
+): UseQueryResult<T | undefined, AxiosError> => {
+  return useQuery<T | undefined, AxiosError>({
     queryKey: [key, id],
     queryFn: async () => {
-      const { data } = await api.get<T>(url);
-      return data;
+      try {
+        const { data } = await api.get<T>(url);
+        return data;
+      } catch (error) {
+        console.error("Error en la API:", error);
+        return undefined;
+      }
     },
     enabled,
   });
