@@ -106,7 +106,7 @@ export const Header = () => {
   const { user } = useAuth();
   const isFan = user?.role === "FAN";
 
-  const handleOpenModal = (mode: AuthMode) => {
+  const handleOpenModal = (mode: AuthMode): void => {
     setOpenModal(mode);
   };
 
