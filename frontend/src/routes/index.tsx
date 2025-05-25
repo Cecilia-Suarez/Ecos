@@ -17,11 +17,6 @@ export const AppRoutes = () => {
       {/* Layout principal con header y footer */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
-<<<<<<< HEAD
-        <Route path="/explorer" element={<ExplorerPage />} />
-=======
-        <Route path="*" element={<div>404 NOT FOUND</div>} />
->>>>>>> frontend
         <Route path="/artist" element={<ArtistPage />} />
         <Route path="/profile/musician/:id" element={<ProfileMusicianPage />} />
 
