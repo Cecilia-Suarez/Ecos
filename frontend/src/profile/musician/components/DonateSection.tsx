@@ -1,4 +1,4 @@
-import { Donate } from "@/profile/components/ui/Donate";
+import { Donate } from "@/profile/components/ui/Icons";
 
 interface DonateSectionProps {
   handleDonationModal: () => void;

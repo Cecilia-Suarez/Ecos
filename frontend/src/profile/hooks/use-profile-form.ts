@@ -7,8 +7,8 @@ export const useProfileForm = <T extends object>(
   id: string,
   endpoint: string,
   formContext: UseFormReturn<T>,
-): { data: T | undefined; isLoading: boolean; isError: boolean } => {
-  const { data, isLoading, isError } = useApiQuery<{ data: T }>(queryKey, endpoint, id);
+) => {
+  const { data, isLoading, isError, refetch } = useApiQuery<{ data: T }>(queryKey, endpoint, id);
 
   const { reset } = formContext;
 
@@ -18,11 +18,5 @@ export const useProfileForm = <T extends object>(
     }
   }, [data, reset]);
 
-  useEffect(() => {
-    if (isError) {
-      console.error("Error en la API:", isError);
-    }
-  }, [isError]);
-
-  return { data: data?.data, isLoading, isError };
+  return { data: data?.data, isLoading, isError, refetch };
 };

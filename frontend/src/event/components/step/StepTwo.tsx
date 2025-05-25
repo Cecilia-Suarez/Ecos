@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { FormData } from "@/event/type/FormData";
 import { z, ZodError } from "zod";
-import { UploadCloud } from "@/profile/components/ui/UploadCloud";
+import { UploadCloud } from "@/profile/components/ui/Icons";
 import { toast } from "sonner";
 
 interface StepTwoProps {
@@ -100,7 +100,7 @@ export default function StepTwo({ nextStep, prevStep, setFormData }: StepTwoProp
   };
 
   return (
-    <div className="mb-20 h-full w-full flex-1 md:mx-auto md:max-w-7xl md:p-6 lg:space-y-25">
+    <div className="mb-20 h-full w-full flex-1 space-y-10 md:mx-auto md:max-w-7xl md:p-6 lg:space-y-25">
       <section className="border[#19233A] flex h-[604px] w-[364px] flex-col items-center justify-center gap-y-9 rounded-3xl border md:w-[801px]">
         <label
           htmlFor="fileInput"
@@ -157,7 +157,7 @@ export default function StepTwo({ nextStep, prevStep, setFormData }: StepTwoProp
           </button>
         </div>
       </section>
-      <div className="flex justify-end space-x-4">
+      <div className="flex justify-center space-x-4 lg:justify-end">
         <button
           type="submit"
           onClick={handleNext}

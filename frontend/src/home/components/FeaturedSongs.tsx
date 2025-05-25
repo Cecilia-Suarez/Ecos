@@ -9,7 +9,7 @@ interface ApiResponseSongs {
 const FeaturedSongs = () => {
   const { data } = useApiQuery<ApiResponseSongs>("songs", "songs", "featured");
   return (
-    <div id="#temas" className="flex flex-col gap-4 overflow-hidden sm:mx-36">
+    <div className="flex flex-col gap-4 overflow-hidden sm:mx-36">
       <h2 className="mx-2 mb-4 text-start text-3xl font-bold text-[#19233A]">Temas destacados</h2>
       {data && <SongsGrid songs={data.items} />}
     </div>

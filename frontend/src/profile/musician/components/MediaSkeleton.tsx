@@ -1,4 +1,4 @@
-import { UploadCloud } from "@/profile/components/ui/UploadCloud";
+import { UploadCloud } from "@/profile/components/ui/Icons";
 import { ComponentProps } from "react";
 
 type MediaSkeletonProps = ComponentProps<"div"> & {

@@ -10,7 +10,7 @@ const FavoriteSongList = () => {
   }
 
   return (
-    <div className="text-ecos-blue flex flex-col items-center">
+    <div id="favoritos" className="text-ecos-blue flex flex-col items-center">
       <h2 className="self-start text-4xl font-medium">TU LISTA DE FAVORITOS</h2>
       <div className="mt-6 grid grid-cols-1 gap-y-16 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-6">
         {data.items.map((song) => (

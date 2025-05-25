@@ -20,7 +20,6 @@ export const useApiMutation = <T, V = unknown>(
     } catch (error) {
       const axiosError = error as AxiosError;
       const apiError = axiosError.response?.data;
-      console.log(apiError);
 
       throw apiError;
     }

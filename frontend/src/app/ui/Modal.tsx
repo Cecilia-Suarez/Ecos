@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
-import { CloseArrow } from "@/auth/components/ui/CloseArrow";
+import { CloseArrow } from "@/auth/components/ui/icons";
 
 interface ModalProps extends PropsWithChildren {
   onClose: () => void;

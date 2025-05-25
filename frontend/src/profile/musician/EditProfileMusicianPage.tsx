@@ -12,7 +12,7 @@ import ImageBanner from "@/assets/imageBanner.webp";
 import { MediaType } from "../utils/media-utils";
 import { type ApiSongs, type BannerUrl } from "./musician-types";
 import { musicalGenreOptions as GENRES } from "../utils/musicalGenreOptions";
-import { ArrowDown } from "../components/ui/ArrowDown";
+import { ArrowDown } from "../components/ui/Icons";
 
 export interface SettingMusic {
   url?: string;

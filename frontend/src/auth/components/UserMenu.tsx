@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/auth/hooks/use-auth";
 import { useNavigate } from "react-router";
-import { Avatar } from "@/auth/components/ui/Avatar";
-import { EditContainer } from "./ui/EditContainer";
-import { Logout } from "./ui/Logout";
-import { Settings } from "./ui/Settings";
+import { Settings, Avatar, Logout, UserProfileIcon, EditContainer } from "./ui/icons";
 import ProfileUserModal from "@/profile/components/ProfileUserModal";
 import { useProfileData } from "../hooks/useProfileData";
 import { Musician, Fan } from "../types";
-import { UserProfileIcon } from "./ui/UserProfileIcon";
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +17,13 @@ const UserMenu = () => {
   const profileType = user?.role === "MUSICIAN" ? "musician" : "fan";
   const endpoint = user?.role === "MUSICIAN" ? `musician-profile/${id}` : `fan-profile/${id}`;
 
-  const { data: profile, refetch } = useProfileData<Musician | Fan>(profileType, id, endpoint);
+  const { data: profile } = useProfileData<Musician | Fan>(profileType, id, endpoint);
 
   const [profileImage, setProfileImage] = useState<string | undefined>(profile?.photoUrl);
 
   useEffect(() => {
-    if (profile?.photoUrl) {
-      setProfileImage(profile.photoUrl);
-    }
-    refetch();
-  }, [profile, refetch]);
+    setProfileImage(profile?.photoUrl);
+  }, [profile]);
 
   const handleLogOut = () => {
     handleLogout();

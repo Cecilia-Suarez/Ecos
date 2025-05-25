@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import ProfileImagen from "./components/ProfileImagen";
 import ImageUpload from "./components/ImageUpdload";
 import Button from "@/app/ui/Button";
-import { Edit } from "@/profile/components/ui/Edit";
-import { Trash } from "@/profile/components/ui/Trash";
+import { Edit, Trash } from "@/profile/components/ui/Icons";
 
 export type Transition = "edit" | "upload";
 

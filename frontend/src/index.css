@@ -62,6 +62,14 @@
   scrollbar-width: none;
 }
 
+.input-field-event {
+  @apply h-[58px] w-full border px-3 py-2 text-[16px] placeholder:text-[#ACACAC] lg:rounded-[20px] xl:text-[22px];
+}
+
+.input-time-event {
+  @apply h-[58px] w-full border px-3 py-2 pl-18 text-[16px] placeholder:text-[#ACACAC] lg:rounded-[20px] xl:text-[22px];
+}
+
 @keyframes pop {
   0% {
     transform: scale(1);

@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import { Donate } from "./ui/Donate";
+import { Donate } from "./ui/Icons";
 
 type HeartButtonProps = ComponentProps<"button"> & {
   children: React.ReactNode;

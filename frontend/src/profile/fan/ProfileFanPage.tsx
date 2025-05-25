@@ -5,9 +5,19 @@ import FeaturedTopicsList from "@/home/components/FeaturedSongs";
 import UpcomingEvents from "@/home/components/sections/UpcomingEvents";
 import { useRequiredUser } from "@/auth/hooks/use-required-user";
 import Button from "@/app/ui/Button";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import { useEffect } from "react";
 
 const ProfileFanPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const section = document.getElementById(location.hash.slice(1));
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
   const user = useRequiredUser();
 
   return (

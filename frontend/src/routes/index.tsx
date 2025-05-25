@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router";
 import { HomePage } from "@/home/HomePage";
 import { MainLayout } from "@/app/layout/MainLayout";
 import ProfileMusicianPage from "@/profile/musician/ProfileMusicianPage";
-import ExplorerPage from "@/explorer/components/ExplorerPage";
 import ArtistPage from "@/artist/components/ArtistPage";
 import ProfileFanPage from "@/profile/fan/ProfileFanPage";
 import ProtectedRoute from "@/auth/components/ProtectedRoute";
@@ -18,7 +17,11 @@ export const AppRoutes = () => {
       {/* Layout principal con header y footer */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
+<<<<<<< HEAD
         <Route path="/explorer" element={<ExplorerPage />} />
+=======
+        <Route path="*" element={<div>404 NOT FOUND</div>} />
+>>>>>>> frontend
         <Route path="/artist" element={<ArtistPage />} />
         <Route path="/profile/musician/:id" element={<ProfileMusicianPage />} />
 

@@ -21,7 +21,7 @@ export default function InputField({
   const isFileInput = type === "file";
 
   return (
-    <div className="flex w-full items-center gap-4">
+    <div className="flex w-full flex-col gap-4 md:flex-row md:items-center">
       <label
         htmlFor={name}
         className={`flex min-w-[150px] text-end text-sm font-medium text-gray-800 ${labelClassName}`}
@@ -34,8 +34,8 @@ export default function InputField({
           id={name}
           name={name}
           type={type}
-          className={`w-full border p-2 text-sm placeholder:text-gray-400 focus:ring-2 focus:outline-none`}
-          {...(!isFileInput && { value: props.value })} // solo se pasa value si no es file
+          className={`input-field-event`}
+          {...(!isFileInput && { value: props.value })}
           {...props}
         />
         {error && <p className="mt-1 text-sm text-red-600">{error}</p>}

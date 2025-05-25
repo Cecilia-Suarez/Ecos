@@ -38,7 +38,7 @@ const FormFanProfile = ({ onClose }: FormFanProfileProps) => {
     resolver: zodResolver(formFanProfileSchema),
   });
 
-  const { data } = useProfileForm<FormFanProfileSchema>(
+  const { data, refetch } = useProfileForm<FormFanProfileSchema>(
     "fan",
     id,
     `fan-profile/${id}`,
@@ -72,12 +72,12 @@ const FormFanProfile = ({ onClose }: FormFanProfileProps) => {
       mutate: (formData) => {
         mutate(formData, {
           onSuccess: () => {
+            refetch();
             toast.success("¡Perfil actualizado con éxito!");
             navigate(`/profile/fan/${id}`);
             onClose();
           },
-          onError: (error) => {
-            console.error("Error al actualizar perfil:", error);
+          onError: () => {
             toast.error("Ocurrió un error al guardar. Intentá nuevamente.");
             setError("root", {
               message: "Ocurrió un error al guardar. Intentá nuevamente.",

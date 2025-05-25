@@ -3,8 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import Button from "@/app/ui/Button";
 import Input from "@/app/ui/Input";
-import { EyeOff } from "./ui/EyeOff";
-import { EyeOn } from "./ui/EyeOn";
+import { EyeOff, EyeOn } from "./ui/icons";
 import { useState } from "react";
 
 interface ForgotPasswordFormProps {

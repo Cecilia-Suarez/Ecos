@@ -1,8 +1,6 @@
-import { PlayIcon } from "@/home/components/ui/PlayIcon";
-import { PlusCircle } from "@/home/components/ui/PlusCircle";
+import { PlayIcon, PlusCircle, PauseIcon } from "@/home/components/ui/Icons";
 import defaultImage from "@/assets/imagePlay.svg";
 import { useState, useRef, useEffect } from "react";
-import { PauseIcon } from "./ui/PauseIcon";
 import { SongList } from "./types/SongList";
 import { useApiMutation } from "@/shared/hooks/use-api-mutation";
 import { useAuth } from "@/auth/hooks/use-auth";

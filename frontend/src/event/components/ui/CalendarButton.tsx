@@ -31,8 +31,9 @@ export const CalendarButton = ({
   return (
     <button
       type="button"
+      title="Agregar en Google Calendar"
       onClick={handleAddToCalendar}
-      className="cursor-pointer text-center text-xl font-semibold text-[#2C53AE] md:text-start lg:mt-5"
+      className="cursor-pointer pl-8 text-start text-xl font-semibold text-[#2C53AE]"
     >
       + Agregar a Calendario
     </button>

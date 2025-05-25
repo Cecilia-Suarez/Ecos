@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, type Location, type NavigateFunction, useLocation, useNavigate } from "react-router";
-import { Avatar } from "@/auth/components/ui/Avatar";
+import { Link, useLocation } from "react-router";
+import { Avatar } from "@/auth/components/ui/icons";
 import Input from "@/app/ui/Input";
 import AuthModal, { AuthMode } from "@/auth/components/AuthModal";
 import EcosLogo from "@/assets/header/logo.svg?react";
@@ -10,8 +10,8 @@ import { useAuth } from "@/auth/hooks/use-auth";
 import { useApiQuery } from "@/shared/hooks/use-api-query";
 import UserMenu from "@/auth/components/UserMenu";
 import WelcomeUserModal from "@/auth/components/WelcomeUserModal";
-// import { Bell } from "./Bell";
 
+<<<<<<< HEAD
 interface Song {
   id: string;
   title: string;
@@ -25,22 +25,25 @@ const NAV_SECTIONS = [
   "Artistas Destacados",
   "Eventos",
   "Preguntas Frecuentes",
+=======
+const HOME_SECTIONS = [
+  { name: "Inicio", hash: "" },
+  { name: "Explorar", hash: "#explorar" },
+  { name: "Artistas Destacados", hash: "#artistas-destacados" },
+  { name: "Eventos", hash: "#eventos" },
+  { name: "Preguntas Frecuentes", hash: "#preguntas-frecuentes" },
+>>>>>>> frontend
 ];
 
-const FAN_SECTIONS = ["Inicio", "Mis Favoritos", "Artistas Destacados", "Eventos"];
-
-const handleNavClick = (section: string, navigate: NavigateFunction, location: Location) => {
-  const hash = `#${section.toLowerCase().replace(" ", "-")}`;
-
-  if (location.pathname !== "/") {
-    navigate(hash.includes("inicio") ? "/" : `/${hash}`);
-  } else {
-    const $section = document.getElementById(hash.slice(1));
-    if ($section) $section.scrollIntoView({ behavior: "smooth" });
-  }
-};
+const USER_SECTIONS = [
+  { name: "Inicio", hash: "" },
+  { name: "Mis Favoritos", hash: "#favoritos" },
+  { name: "Artistas Destacados", hash: "#artistas-destacados" },
+  { name: "Eventos", hash: "#eventos" },
+];
 
 export const Header = () => {
+<<<<<<< HEAD
   // const [activeSection, setActiveSection] = useState("");
 
   // useEffect(() => {
@@ -96,11 +99,12 @@ export const Header = () => {
     setCurrentSong(null);
   };
 
+=======
+>>>>>>> frontend
   const [openModal, setOpenModal] = useState<AuthMode | null>(null);
   const [showWelcomeUser, setShowWelcomeUser] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const navigate = useNavigate();
   const location = useLocation();
 
   const { user } = useAuth();
@@ -137,7 +141,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="bg-ecos-blue shadow">
+      <header id="top" className="bg-ecos-blue shadow">
         <div className="mx-auto flex items-center justify-between py-6 pr-2.5 pl-6 xl:pr-[22px] xl:pl-[45px]">
           <div className="flex flex-auto items-center gap-9 2xl:gap-[74px]">
             <Link to="/" className="hidden lg:flex">
@@ -156,6 +160,7 @@ export const Header = () => {
               )}
             </button>
 
+            {/* MOBILE NAV */}
             {isOpen && (
               <div className="fixed inset-0 z-10" onClick={closeMobileMenu}>
                 <nav
@@ -164,56 +169,55 @@ export const Header = () => {
                     event.stopPropagation();
                   }}
                 >
-                  {isFan
-                    ? FAN_SECTIONS.map((section) => (
-                        <a
-                          key={section}
-                          title={section}
-                          onClick={() => {
-                            handleNavClick(section, navigate, location);
-                            closeMobileMenu();
-                          }}
-                          className="text-ecos-blue text-2xl font-normal"
+                  {isFan && location.pathname !== "/"
+                    ? USER_SECTIONS.map(({ name, hash }) => (
+                        <Link
+                          key={name}
+                          title={name}
+                          onClick={closeMobileMenu}
+                          className="cursor-pointer hover:text-[#B1B1B1]"
+                          to={{ pathname: name === "Inicio" ? "/" : location.pathname, hash }}
                         >
-                          {section}
-                        </a>
+                          {name}
+                        </Link>
                       ))
-                    : NAV_SECTIONS.map((section) => (
-                        <a
-                          key={section}
-                          title={section}
-                          onClick={() => {
-                            handleNavClick(section, navigate, location);
-                            closeMobileMenu();
-                          }}
-                          className="text-ecos-blue text-2xl font-normal"
+                    : HOME_SECTIONS.map(({ name, hash }) => (
+                        <Link
+                          key={name}
+                          title={name}
+                          onClick={closeMobileMenu}
+                          className="cursor-pointer hover:text-[#B1B1B1]"
+                          to={{ pathname: "/", hash }}
                         >
-                          {section}
-                        </a>
+                          {name}
+                        </Link>
                       ))}
                 </nav>
               </div>
             )}
 
+            {/* DESKTOP NAV */}
             <nav className="text-ecos-base hidden gap-10 text-xl font-normal lg:flex 2xl:gap-20 2xl:text-2xl">
-              {isFan
-                ? FAN_SECTIONS.map((section) => (
-                    <a key={section} className={`cursor-pointer hover:text-[#B1B1B1]`}>
-                      {section}
-                    </a>
-                  ))
-                : NAV_SECTIONS.slice(1).map((section) => (
-                    <a
-                      key={section}
-                      onClick={() => {
-                        handleNavClick(section, navigate, location);
-                        closeMobileMenu();
-                      }}
-                      title={section}
-                      className={`cursor-pointer hover:text-[#B1B1B1]`}
+              {isFan && location.pathname !== "/"
+                ? USER_SECTIONS.slice(1).map(({ name, hash }) => (
+                    <Link
+                      key={name}
+                      title={name}
+                      className="cursor-pointer hover:text-[#B1B1B1]"
+                      to={{ pathname: location.pathname, hash }}
                     >
-                      {section}
-                    </a>
+                      {name}
+                    </Link>
+                  ))
+                : HOME_SECTIONS.slice(1).map(({ name, hash }) => (
+                    <Link
+                      key={name}
+                      title={name}
+                      className="cursor-pointer hover:text-[#B1B1B1]"
+                      to={{ pathname: "/", hash }}
+                    >
+                      {name}
+                    </Link>
                   ))}
             </nav>
           </div>
@@ -245,7 +249,6 @@ export const Header = () => {
               </>
             ) : (
               <>
-                {/* <Bell className="size-[70px]" /> */}
                 <UserMenu />
               </>
             )}

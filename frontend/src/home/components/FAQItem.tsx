@@ -1,4 +1,4 @@
-import ArrowUpIcon from "./ui/ArrowUpIcon";
+import { ArrowUpIcon } from "./ui/Icons";
 import { useState } from "react";
 
 const FAQItemList = [

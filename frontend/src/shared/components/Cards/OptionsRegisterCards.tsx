@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router";
 import AuthModal, { AuthMode } from "@/auth/components/AuthModal";
 import WelcomeUserModal from "@/auth/components/WelcomeUserModal";
@@ -17,7 +16,7 @@ interface OptionsRegisterCardsProps {
   buttonText: string;
 }
 
-const OptionsRegisterCards: React.FC<OptionsRegisterCardsProps> = ({
+const OptionsRegisterCards = ({
   icono,
   option,
   description,
@@ -26,20 +25,24 @@ const OptionsRegisterCards: React.FC<OptionsRegisterCardsProps> = ({
   parrafo2,
   parrafo,
   buttonText,
-}) => {
+}: OptionsRegisterCardsProps) => {
   const [openModal, setOpenModal] = useState<AuthMode | null>(null);
   const [showWelcomeUser, setShowWelcomeUser] = useState(false);
+
   const { user } = useAuth();
 
   const handleOpenModal = (mode: AuthMode) => {
     setOpenModal(mode);
   };
+
   const handleCloseModal = () => {
     setOpenModal(null);
   };
+
   useEffect(() => {
     if (user) setOpenModal(null);
   }, [user]);
+
   useEffect(() => {
     const shouldShow = localStorage.getItem("showWelcomeUser");
     if (shouldShow) {
@@ -78,7 +81,7 @@ const OptionsRegisterCards: React.FC<OptionsRegisterCardsProps> = ({
         <div className="mx-4 mt-auto flex justify-end">
           {buttonText === "Explorar" ? (
             <Link
-              to="/explorer"
+              to={{ hash: "#explorar" }}
               className="bg-ecos-orange-light hover:bg-ecos-dark-grey-light flex w-32 cursor-pointer items-center justify-center rounded-3xl px-4 py-2 text-center text-white"
             >
               {buttonText}
@@ -96,7 +99,9 @@ const OptionsRegisterCards: React.FC<OptionsRegisterCardsProps> = ({
           )}
         </div>
       </div>
+
       {openModal && <AuthModal mode={openModal} onClose={handleCloseModal} />}
+
       {showWelcomeUser && (
         <WelcomeUserModal
           onClose={() => {

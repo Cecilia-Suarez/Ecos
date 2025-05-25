@@ -5,6 +5,7 @@ import InputTime from "../ui/InputTime";
 import { eventSchema } from "../../validation/EventSchema";
 import { ZodError } from "zod";
 import { FormData } from "../../type/FormData";
+import { useNavigate } from "react-router";
 
 interface StepOneProps {
   formData: FormData;
@@ -13,6 +14,7 @@ interface StepOneProps {
 }
 
 export default function StepOne({ nextStep, formData, setFormData }: StepOneProps) {
+  const navigate = useNavigate();
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,7 +70,7 @@ export default function StepOne({ nextStep, formData, setFormData }: StepOneProp
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full space-y-8 md:p-6 lg:mx-auto lg:max-w-7xl">
+    <form onSubmit={handleSubmit} className="mb-8 w-full space-y-8 md:p-6 lg:mx-auto lg:max-w-7xl">
       <div>
         <p className="mb-2 font-[Roboto] text-2xl font-medium">Detalles</p>
         <div className="grid w-full grid-cols-1 items-center justify-start gap-4">
@@ -96,13 +98,10 @@ export default function StepOne({ nextStep, formData, setFormData }: StepOneProp
         </div>
       </div>
 
-      {/* Tipo de evento */}
       <TypeSelector form={formData} setForm={setFormData} error={formErrors.type} />
 
-      {/* Fecha y hora */}
       <InputTime form={formData} handleChange={handleChange} errors={formErrors} />
 
-      {/* Lugar */}
       <div className="flex flex-col">
         <p className="mb-2 font-[Roboto] text-2xl font-medium">Lugar</p>
         <InputField
@@ -117,7 +116,6 @@ export default function StepOne({ nextStep, formData, setFormData }: StepOneProp
         />
       </div>
 
-      {/* Información adicional */}
       <p className="mb-2 font-[Roboto] text-2xl font-medium">Información adicional</p>
       <div className="flex-1 md:flex md:space-x-4">
         <label className="w-35 text-end text-sm font-medium text-gray-800">
@@ -128,7 +126,7 @@ export default function StepOne({ nextStep, formData, setFormData }: StepOneProp
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className={`flex h-28 w-full border p-2 text-sm placeholder:text-gray-400 focus:ring-2 focus:outline-none`}
+            className={`flex h-28 w-full border p-2 text-[16px] placeholder:text-[#ACACAC] focus:ring-2 focus:outline-none lg:rounded-[20px] lg:text-[22px]`}
             placeholder="Describe un poco más tu evento para atraer al público"
           />
           {formErrors.description && (
@@ -140,16 +138,14 @@ export default function StepOne({ nextStep, formData, setFormData }: StepOneProp
       <div className="flex justify-center space-x-4 md:justify-end">
         <button
           type="submit"
-          className="rounded-[37px] bg-[#FE963D] px-6 py-2 text-white hover:opacity-90"
+          className="rounded-[37px] bg-[#FE963D] px-2 py-2 text-white hover:opacity-90 md:px-6"
         >
           Guardar y continuar
         </button>
         <button
           type="button"
-          className="rounded-[37px] bg-[#19233A] px-6 py-2 text-white hover:bg-gray-400"
-          onClick={() => {
-            /* Opcional: manejar cancelar */
-          }}
+          className="rounded-[37px] bg-[#19233A] px-2 py-2 text-white hover:bg-gray-400 md:px-6"
+          onClick={() => navigate(-1)}
         >
           Cancelar
         </button>

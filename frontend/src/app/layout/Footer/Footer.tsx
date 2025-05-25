@@ -9,10 +9,10 @@ export const Footer = () => {
       <div className="flex flex-col gap-32 lg:flex-row lg:gap-64 xl:gap-[356px]">
         <div className="text-ecos-blue flex flex-col gap-8">
           <h3 className="text-3xl font-medium uppercase">Nosotros</h3>
-          <Link to="/">
+          <Link to={{ pathname: "/", hash: "#top" }}>
             <u className="text-2xl">Bienvenidos</u>
           </Link>
-          <Link to="/explorer">
+          <Link to={{ pathname: "/", hash: "#explorar" }}>
             <u className="text-2xl">Explorar</u>
           </Link>
           <Link to="/artist">

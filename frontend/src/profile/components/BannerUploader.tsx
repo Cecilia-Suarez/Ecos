@@ -1,5 +1,5 @@
 import { ComponentProps, useRef, useState } from "react";
-import { UploadCloud } from "./ui/UploadCloud";
+import { UploadCloud } from "./ui/Icons";
 
 interface BannerUploaderProps extends ComponentProps<"section"> {
   onImageUpload?: (file: File | null, imageUrl: string | null) => void;
