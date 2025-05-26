@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router";
 import ImageBanner from "@/assets/bannerProfileFan.webp";
 import FavoriteSongList from "./components/FavoriteSongList";
 import FeaturedArtists from "@/home/components/sections/FeaturedArtists";
@@ -5,11 +7,12 @@ import FeaturedTopicsList from "@/home/components/FeaturedSongs";
 import UpcomingEvents from "@/home/components/sections/UpcomingEvents";
 import { useRequiredUser } from "@/auth/hooks/use-required-user";
 import Button from "@/app/ui/Button";
-import { Link, useLocation } from "react-router";
-import { useEffect } from "react";
 
 const ProfileFanPage = () => {
   const location = useLocation();
+  const [refreshFavorites, setRefreshFavorites] = useState(0);
+
+  const user = useRequiredUser();
 
   useEffect(() => {
     if (location.hash) {
@@ -18,7 +21,9 @@ const ProfileFanPage = () => {
     }
   }, [location]);
 
-  const user = useRequiredUser();
+  const handleFavoriteAdded = () => {
+    setRefreshFavorites((prev) => prev + 1);
+  };
 
   return (
     <div className="flex w-full flex-col items-center gap-24 px-2.5 lg:px-0">
@@ -29,8 +34,8 @@ const ProfileFanPage = () => {
         <h3 className="text-2xl sm:text-3xl">{user.name}</h3>
       </div>
 
-      <FavoriteSongList />
-      <FeaturedTopicsList />
+      <FavoriteSongList refresh={refreshFavorites} />
+      <FeaturedTopicsList onFavoriteAdded={handleFavoriteAdded} />
       <FeaturedArtists />
       <Link to={"/artist"} className="mx-36 mt-20 hidden lg:flex lg:justify-center">
         <Button

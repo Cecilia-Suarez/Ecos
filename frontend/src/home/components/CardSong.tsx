@@ -11,9 +11,10 @@ interface CardSongProps {
   isPlaying: boolean;
   onPlay: () => void;
   onPause: () => void;
+  onFavoriteAdded?: () => void;
 }
 
-const CardSong = ({ song, isPlaying, onPlay, onPause }: CardSongProps) => {
+const CardSong = ({ song, isPlaying, onPlay, onPause, onFavoriteAdded }: CardSongProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const imageSrc = song.musicianInfo.photoUrl ?? defaultImage;
   const { title, genre, audioUrl } = song;
@@ -37,6 +38,7 @@ const CardSong = ({ song, isPlaying, onPlay, onPause }: CardSongProps) => {
     saveFavoriteMutation.mutate(undefined, {
       onSuccess: () => {
         toast.success("Canción guardada en favoritos.");
+        if (onFavoriteAdded) onFavoriteAdded();
       },
       onError: () => toast.error("No se pudo guardar la canción."),
     });

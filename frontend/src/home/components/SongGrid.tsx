@@ -6,9 +6,10 @@ import { useEffect } from "react";
 
 interface SongsGridProps {
   songs: SongList[];
+  onFavoriteAdded?: () => void;
 }
 
-const SongsGrid = ({ songs }: SongsGridProps) => {
+const SongsGrid = ({ songs, onFavoriteAdded }: SongsGridProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -62,6 +63,7 @@ const SongsGrid = ({ songs }: SongsGridProps) => {
               onPause={() => {
                 setPlayingId(null);
               }}
+              onFavoriteAdded={onFavoriteAdded}
             />
           ))}
         </div>
