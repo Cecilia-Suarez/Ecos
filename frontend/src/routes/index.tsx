@@ -9,7 +9,7 @@ import EventPage from "@/event/EventPage";
 import { EditProfileMusicianPage } from "@/profile/musician/EditProfileMusicianPage";
 import { BackButtonLayout } from "@/app/layout/BackButtonLayout";
 import { EventById } from "@/app/components/EventById";
-import NotFound from "@/app/ui/NoFound";
+import NotFound from "@/app/ui/NotFound";
 
 export const AppRoutes = () => {
   return (
