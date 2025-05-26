@@ -6,6 +6,7 @@ export const useApiQuery = <T>(
   key: string,
   url: string,
   id?: string,
+  enabled = true,
 ): UseQueryResult<T, AxiosError> => {
   return useQuery<T, AxiosError>({
     queryKey: [key, id],
@@ -13,5 +14,6 @@ export const useApiQuery = <T>(
       const { data } = await api.get<T>(url);
       return data;
     },
+    enabled,
   });
 };
