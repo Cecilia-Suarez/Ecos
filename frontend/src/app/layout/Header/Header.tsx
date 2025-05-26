@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { Avatar } from "@/auth/components/ui/icons";
+//import { Avatar } from "@/auth/components/ui/icons";
 import Input from "@/app/ui/Input";
 import AuthModal, { AuthMode } from "@/auth/components/AuthModal";
-import EcosLogo from "@/assets/header/logo.svg?react";
-import MenuIcon from "@/assets/hamburgerMenu-2.svg?react";
-import Lens from "@/assets/lens.svg?react";
+import EcosLogo from "@/app/ui/EcosIcon";
+import MenuIcon from "@/app/ui/MenuIcon";
+import Lens from "@/app/ui/LensIcon";
 import { useAuth } from "@/auth/hooks/use-auth";
 import UserMenu from "@/auth/components/UserMenu";
 import WelcomeUserModal from "@/auth/components/WelcomeUserModal";
@@ -15,7 +15,7 @@ const HOME_SECTIONS = [
   { name: "Explorar", hash: "#explorar" },
   { name: "Artistas Destacados", hash: "#artistas-destacados" },
   { name: "Eventos", hash: "#eventos" },
-  { name: "Preguntas Frecuentes", hash: "#preguntas-frecuentes" },
+  /*{ name: "Preguntas Frecuentes", hash: "#preguntas-frecuentes" },*/
 ];
 
 const USER_SECTIONS = [
@@ -66,11 +66,11 @@ export const Header = () => {
 
   return (
     <>
-      <header id="top" className="bg-ecos-blue shadow">
-        <div className="mx-auto flex items-center justify-between py-6 pr-2.5 pl-6 xl:pr-[22px] xl:pl-[45px]">
-          <div className="flex flex-auto items-center gap-9 2xl:gap-[74px]">
-            <Link to="/" className="hidden lg:flex">
-              <EcosLogo className="h-auto w-20 py-5 xl:w-[121px] xl:py-0" />
+      <header className="bg-ecos-blue w-full pb-8 shadow lg:h-[17.25rem]">
+        <div className="mx-auto flex items-center justify-between py-6 pr-2.5 pl-6">
+          <div className="flex flex-auto items-center gap-9">
+            <Link to="/" className="hidden lg:block">
+              <EcosLogo className="h-auto w-[7.563rem]" />
             </Link>
 
             <button
@@ -79,16 +79,16 @@ export const Header = () => {
               onClick={toggleMobileMenu}
             >
               {isOpen ? (
-                <span className="text-5xl text-white">✖</span>
+                <span className="text-4xl text-white md:ml-9">✖</span>
               ) : (
-                <MenuIcon className="h-12 w-12 md:ml-9" />
+                <MenuIcon className="h-12 w-12 text-white md:ml-9" />
               )}
             </button>
             {/* MOBILE NAV */}
             {isOpen && (
               <div className="fixed inset-0 z-10" onClick={closeMobileMenu}>
                 <nav
-                  className="absolute top-22 left-1 z-10 flex w-[286px] flex-col items-start gap-2.5 rounded-[20px] bg-white px-[26px] py-[53px] shadow-md lg:hidden"
+                  className="absolute top-22 left-1 z-10 flex w-[17.875rem] flex-col items-start gap-2.5 rounded-[1.25rem] bg-white px-[1.625rem] py-[3.313rem] shadow-md lg:hidden"
                   onClick={(event) => {
                     event.stopPropagation();
                   }}
@@ -145,10 +145,10 @@ export const Header = () => {
             </nav>
           </div>
 
-          <div className="flex items-center justify-end xl:gap-3 2xl:gap-[74px]">
+          <div className="flex items-center justify-end">
             {!user ? (
               <>
-                <div className="text-ecos-base hidden gap-6 px-[39px] text-base font-normal md:flex">
+                <div className="text-ecos-base hidden gap-6 px-[2.438rem] md:flex">
                   <button
                     className="cursor-pointer"
                     type="button"
@@ -168,7 +168,7 @@ export const Header = () => {
                     Crear cuenta
                   </button>
                 </div>
-                <Avatar className="m-5 md:m-0" />
+                {/* <Avatar className="my-1 mr-[1.375rem] ml-[1.438rem]" /> */}
               </>
             ) : (
               <>
@@ -177,14 +177,13 @@ export const Header = () => {
             )}
           </div>
         </div>
-        <div className="mx-auto mb-6 w-88 md:w-192 lg:-mt-12 lg:mb-12 lg:w-4/5">
-          <Input
-            placeholder="Busca Canciones y navega con música ..."
-            className="text-ecos-blue mx-auto flex w-full bg-[#ECE6F0] sm:w-4/5 lg:py-2 lg:text-xl lg:font-semibold"
-            startIcon={<MenuIcon className="my-auto" />}
-            endIcon={<Lens className="my-auto" />}
-          />
-        </div>
+
+        <Input
+          placeholder="Busca Artista, Album, Canción"
+          startIcon={<MenuIcon />}
+          endIcon={<Lens />}
+          className="mx-auto bg-white"
+        />
       </header>
       {openModal && <AuthModal mode={openModal} onClose={handleCloseModal} />}
       {showWelcomeUser && (

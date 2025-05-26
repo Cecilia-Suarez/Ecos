@@ -28,15 +28,15 @@ export default function BannerGuitarsRegister() {
   }, [user]);
   return (
     <>
-      <div className="relative">
+      <div className="relative rounded-[1.875rem]">
         <img
           src={BannerGuitar}
-          className="m-auto h-[182px] w-[364px] rounded-2xl shadow-2xl md:h-[471px] md:w-[687px] lg:h-[486px] lg:w-[1570px]"
+          className="m-auto h-[11.375rem] w-[22.75rem] rounded-2xl md:h-[29.438rem] md:w-[42.938rem] md:pr-[4.625rem] lg:h-[30.375rem] lg:w-[98.125rem]"
           alt="Banner Guitar"
         />
         <button
           type="button"
-          className="bg-ecos-orange-light hover:bg-ecos-dark-grey-light absolute bottom-6 left-20 z-10 h-[36px] w-[194px] cursor-pointer rounded-4xl text-xl text-white md:bottom-12 md:left-36 md:h-[63px] md:w-[339px] md:text-2xl lg:bottom-16 lg:left-44"
+          className="bg-ecos-orange-light hover:bg-ecos-dark-grey-light absolute bottom-6 z-10 h-9 w-[12.125rem] cursor-pointer rounded-4xl text-xl text-white md:bottom-12 md:left-[4.438rem] md:h-[3.938rem] md:w-[21.188rem] md:text-2xl lg:bottom-16 lg:left-44"
           onClick={() => {
             handleOpenModal("register");
           }}

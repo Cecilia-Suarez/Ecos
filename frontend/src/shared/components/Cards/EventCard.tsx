@@ -29,30 +29,32 @@ const EventCard = ({
   }).format(date);
 
   return (
-    <div className="bg-ecos-blue flex h-auto max-h-[423px] min-h-[379px] w-full max-w-[496px] flex-col items-start rounded-[20px] px-4 py-[18px]">
-      <div className="flex w-full items-start gap-6 py-4">
-        <div className="flex w-full max-w-[255px] min-w-[120px] flex-shrink">
-          <img src={image ?? img} alt="imagen" className="aspect-square w-full rounded-[50px]" />
-        </div>
+    <div className="bg-ecos-blue flex h-[22.5rem] w-[22.688rem] flex-col gap-[1.125rem] rounded-[1.25rem] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
+      <div className="flex h-[11.438rem] w-full gap-6 px-4 py-[1.125rem]">
+        <img
+          src={image ?? img}
+          alt="imagen"
+          className="aspect-square h-[10.688rem] w-[10.563rem] flex-shrink rounded-[1.75rem]"
+        />
 
-        <div className="flex min-w-[110px] flex-auto flex-col items-start gap-6 text-white">
-          <div className="flex flex-col items-start gap-1">
+        <div className="flex h-[11rem] flex-col justify-between text-white">
+          <div className="flex h-[3.75rem] flex-col items-start gap-1">
             <h2 className="text-2xl font-normal">{stageName}</h2>
             <h4 className="text-base font-medium">{supportingText}</h4>
           </div>
           <button
             type="button"
             onClick={() => navigate(`/event/${id.toString()}`)}
-            className="bg-ecos-orange-light text-ecos-blue h-10 cursor-pointer rounded-[20px] px-6 py-2.5 text-sm font-medium"
+            className="bg-ecos-orange-light cursor-pointer rounded-[1.25rem] px-6 py-2.5 text-sm font-medium"
           >
             Ver más
           </button>
         </div>
       </div>
 
-      <div className="flex flex-col items-start gap-2 py-2 text-white">
-        <h5 className="text-[11px] font-medium">{`${category} - ${formatted}`}</h5>
-        <p className="line-clamp-3 text-sm leading-5 font-normal tracking-[0.25px] text-balance">
+      <div className="flex h-[7.813rem] flex-col items-start gap-2 px-4 py-2 text-white">
+        <h5 className="text-[0.688rem] font-medium">{`${category} - ${formatted}`}</h5>
+        <p className="line-clamp-3 text-sm leading-5 font-normal tracking-[0.016rem] text-balance">
           {contentPublished}
         </p>
       </div>

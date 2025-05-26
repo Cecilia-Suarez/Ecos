@@ -42,25 +42,25 @@ const FAQItem = () => {
   };
 
   return (
-    <ul className="list-none lg:w-3/5">
+    <ul className="w-full list-none pr-[0.813rem] md:w-[44.938rem] md:pr-[4.625rem] lg:w-[63.375rem] lg:pr-8">
       {FAQItemList.map(({ id, question, answer }) => {
         const isOpen = openItemId === id;
         return (
-          <li key={id} className="border-b border-black">
+          <li key={id} className="border-ecos-blue border-b">
             <div
-              className="flex cursor-pointer items-center justify-between py-[20px]"
+              className="flex cursor-pointer items-center justify-between py-5"
               onClick={() => {
                 toggleItem(id);
               }}
             >
-              <h3 className="text-lg">{question}</h3>
+              <h3 className="py-5 text-lg font-bold">{question}</h3>
               <ArrowUpIcon
                 className={`h-5 w-5 transition-transform duration-300 ${
                   isOpen ? "rotate-0" : "rotate-180"
                 }`}
               />
             </div>
-            {isOpen && <p className="pb-[24px] text-sm">{answer}</p>}
+            {isOpen && <p className="pb-6 text-sm">{answer}</p>}
           </li>
         );
       })}

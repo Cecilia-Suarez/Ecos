@@ -21,7 +21,7 @@ export const HomePage = () => {
   return (
     <main className="content-center">
       <Hero />
-      <div className="space-y-24">
+      <div className="mx-auto w-full max-w-screen-xl space-y-20 pl-[0.813rem] md:pl-[4.625rem] lg:pl-8">
         <OptionsRegister />
         <DiscoverArtist />
         <FeaturedArtists />

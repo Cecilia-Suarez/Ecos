@@ -56,10 +56,10 @@ export default function Hero() {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden md:h-[469px] lg:h-[986px]">
+      <div className="relative h-[13.813rem] w-full overflow-hidden md:h-[29.313rem] lg:h-screen">
         <video
           ref={videoRef}
-          className="absolute inset-0 -z-10 h-full w-full object-cover md:h-[469px] lg:h-[986px]"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
           src={HeroVideo}
           autoPlay
           loop
@@ -68,19 +68,19 @@ export default function Hero() {
           preload="none"
         />
 
-        <div className="flex h-full w-full flex-col justify-center px-6 py-8 text-white sm:px-12 md:px-24">
-          <div className="max-w-3xl">
-            <h1 className="max-w-[428px] text-2xl font-bold drop-shadow-lg md:text-5xl">
-              Bienvenidos a Ecos, tu plataforma musical ideal
+        <div className="flex h-full w-full flex-col justify-center text-white">
+          <div className="space-y-1.5 pl-[0.813rem] md:space-y-16 md:pl-[4.625rem] lg:space-y-[1.938rem] lg:pl-8">
+            <h1 className="text-2xl font-medium drop-shadow-lg md:text-5xl">
+              Bienvenido a Ecos <br /> tu plataforma <br /> musical ideal
             </h1>
-            <p className="mt-4 max-w-[390px] text-xs sm:max-w-[257px] md:text-sm">
+            <p className="w-[16.063rem] text-justify text-xs md:w-[24.375rem] md:text-sm">
               Descubre un mundo lleno de música y creatividad. Únete a nosotros para compartir tu
               arte y conectar con otros amantes de la música.
             </p>
-            <div className="mt-6 flex gap-6">
+            <div className="flex gap-[0.688rem] md:gap-[2.063rem]">
               <button
                 type="submit"
-                className="bg-ecos-blue h-12 w-32 cursor-pointer rounded-3xl text-sm text-white hover:bg-[#B1B1B1]"
+                className="bg-ecos-blue cursor-pointer rounded-3xl px-6 py-2.5 text-xs font-medium text-white hover:bg-[#B1B1B1] md:text-sm"
                 onClick={() => {
                   handleOpenModal("register");
                 }}
@@ -90,7 +90,7 @@ export default function Hero() {
               <button
                 type="submit"
                 onClick={handleScrollToExploreSection}
-                className="bg-ecos-orange-light h-12 w-32 cursor-pointer rounded-3xl text-sm text-white hover:bg-[#B1B1B1]"
+                className="bg-ecos-orange-light cursor-pointer rounded-3xl px-6 py-2.5 text-xs font-medium hover:bg-[#B1B1B1] md:text-sm"
               >
                 Explora
               </button>

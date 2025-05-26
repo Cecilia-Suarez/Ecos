@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+main{
+  width: 100vw;
+}
+
 @font-face {
   font-family: 'Roboto';
   src: url('@/assets/fonts/roboto.woff2') format('woff2');
@@ -20,6 +24,11 @@
 
   /* Fuente */
   --font-sans: 'Roboto', system-ui, sans-serif;
+}
+
+/* Subtitulos */
+.subtitles{
+  @apply text-2xl font-medium text-black md:text-[2.5rem] md:text-ecos-blue 
 }
 
 /* Botones */
@@ -54,12 +63,22 @@
   @apply w-full text-white sm:w-auto;
 }
 
-.no-scrollbar::-webkit-scrollbar {
+/* Reproductor Home */
+.noScrollbar::-webkit-scrollbar {
   display: none;
 }
-.no-scrollbar {
+
+.noScrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.btnScroll{
+  @apply absolute top-1/2 z-20 hidden h-[2.813rem] w-[2.813rem] -translate-y-1/2 cursor-pointer rounded-full p-2.5 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-opacity lg:block 
+}
+
+.btnScrollDisabled{
+  @apply cursor-not-allowed opacity-30
 }
 
 .input-field-event {

@@ -7,7 +7,7 @@ interface ArtistGridProps {
 
 const ArtistGrid = ({ musicians }: ArtistGridProps) => {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:justify-items-center lg:grid-cols-2 lg:grid-rows-2">
+    <div className="grid w-full grid-cols-1 justify-items-center space-y-8 md:grid-cols-1 lg:grid-cols-[repeat(auto-fit,_550px)] lg:justify-between">
       {musicians.map((musician) => (
         <CardArtist key={musician.id} musician={musician} />
       ))}
