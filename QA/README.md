@@ -75,7 +75,8 @@
         <h3>Reconociendo Nuestros Desafíos</h3> <br>
         Durante este proceso de aprendizaje, nos encontramos con obstáculos significativos que debemos abordar con honestidad. Los problemas de coordinación interna afectaron inicialmente nuestra eficiencia, mientras que las dificultades de comunicación con otros equipos generaron algunos retrasos en la entrega de resultados. Además, al encontrarnos en una fase intensiva de aprendizaje, experimentamos demoras naturales en el desarrollo de nuestras pruebas, ya que cada nueva técnica requería tiempo adicional para ser dominada y aplicada correctamente.<br>
         Estos desafíos, aunque frustrantes en el momento, formaron parte integral de nuestro proceso de crecimiento profesional y nos enseñaron valiosas lecciones sobre la importancia de establecer canales de comunicación claros y procesos de coordinación bien definidos.<br>
-        Más allá del aspecto técnico, esta experiencia nos brindó la oportunidad de conocer a personas extraordinarias que ahora forman parte de nuestra red profesional. Las "horas de vuelo" acumuladas durante esta simulación representan una experiencia invaluable que solo se obtiene a través de la práctica constante y la dedicación al aprendizaje continuo.
+        Más allá del aspecto técnico, esta experiencia nos brindó la oportunidad de conocer a personas extraordinarias que ahora forman parte de nuestra red profesional. Las "horas de vuelo" acumuladas durante esta simulación representan una experiencia invaluable que solo se obtiene a través de la práctica constante y la dedicación al aprendizaje continuo.<br>
+        También queremos pedir disculpas por los errores cometidos hasta la fecha. 
     </p>
 </div>
 </div>
