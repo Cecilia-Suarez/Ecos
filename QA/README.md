@@ -20,9 +20,9 @@
     <div>
  1. Smoke Test Manual ID: PDDSmk001 
   <ul>
-            <li><a href="./SmokeTestManual/SmokeTest_PDDSmk001.pdf">Smoke Test Manual ID: PDDSmk001</a></li>
+            <li><a href="./SmokeTestManual/SmokeTest_PDDSmk001.pdf">Documentación Smoke Test Manual ID: PDDSmk001</a></li>
             
-        </ul>
+        
    
  2. Pruebas Automáticas Creación Usuario Fan 🎧
    - 2.a  Creación de Usuario Fan con datos correctos
@@ -41,9 +41,19 @@
   4. Prueba de Login Usuario Fan
         4.a.1   Pruebas con Katalon
         4.a.2   Pruebas con Selenium
-  5. Prueba de Formulario de Contacto 📧
+  5. Prueba de Login Usuario Músico
+        5.a.1   Pruebas con Katalon
+        5.a.2   Pruebas con Selenium
+  6. Prueba de Reproducir Música
+        6.a.1   Pruebas con Katalon
+        6.a.2   Pruebas con Selenium
+  7. Prueba para completar formulario de contacto
+        7.a.1   Pruebas con Katalon
+        7.a.2   Pruebas con Selenium
     </div>
-   
+    <div>
+  <li><a href="">Documentación de Pruebas Automáticas</a></li>
+
 
     
 </div>
